@@ -15,7 +15,28 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
 yield takeEvery('GET_PROJECTS' , getProjects)
+yield takeEvery('POST_PROJECTS' , postProjects)
+yield takeEvery('DELETE_PROJECT' , deleteProjects)
 }
+function* deleteProjects(action){
+    try{
+        yield call(axios.delete , `/api/projects/${action.payload}`)
+        yield dispatch({type: 'GET_PROJECTS'})
+    }catch(error){
+        console.log('error in delete' , error);
+        
+    }
+}
+function* postProjects(action){
+    try{ 
+        yield call(axios.post , '/api/projects', action.payload)
+        yield dispatch({type: 'GET_PROJECTS' })
+    }catch(error){
+        console.log('error in post ' ,  error);
+        
+    }
+}
+
 
 function* getProjects(){
     try {
