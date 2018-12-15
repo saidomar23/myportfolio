@@ -41,8 +41,27 @@ class Admin extends Component{
                     <input type="text" placeholder="Description"/>
                     <input type="submit"/>
                 </form>
-                {}
-                {JSON.stringify(this.props.reduxStore)}
+                <table>
+                        <thead>
+                            <tr><th>Name</th>
+                            <th>Github</th>
+                            <th>Website</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                {this.props.reduxStore.projects.map(project =>{
+                    return <tr key={project.id}>
+                            <td>
+
+                            </td>
+                        </tr>
+                   
+                  
+                })}
+                 </tbody>
+                  </table>
+                {JSON.stringify(this.props.reduxStore.projects)}
             </div>
         )
     }
