@@ -13,9 +13,12 @@ class Admin extends Component{
         date_completed: '',
         description: ''
     }
+    componentDidMount(){
+        this.getProjets();
+    }
 
     getProjets = () =>{
-        
+        this.props.dispatch({type: 'GET_PROJECTS'})
     }
 
     render(){
@@ -38,7 +41,8 @@ class Admin extends Component{
                     <input type="text" placeholder="Description"/>
                     <input type="submit"/>
                 </form>
-
+                {}
+                {JSON.stringify(this.props.reduxStore)}
             </div>
         )
     }
