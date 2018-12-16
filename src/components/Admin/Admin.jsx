@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+// import Table from '@material-ui/core/Table';
 
 class Admin extends Component {
 
@@ -26,12 +26,12 @@ class Admin extends Component {
     }
     handleGithubChange = (event) => {
         this.setState({
-            github : event.target.value
+            github: event.target.value
         })
     }
     handleTagChange = (event) => {
         this.setState({
-            tag: event.target.value            
+            tag: event.target.value
         })
     }
     handleWebsiteChange = (event) => {
@@ -41,26 +41,26 @@ class Admin extends Component {
     }
     handleDateChange = (event) => {
         this.setState({
-            date_completed: event.target.value            
+            date_completed: event.target.value
         })
         console.log(this.state.date_completed);
-        
+
     }
     handleDescriptionChange = (event) => {
         this.setState({
             description: event.target.value
         })
-        
-        
+
+
     }
-    handleSubmit = (event) =>{
+    handleSubmit = (event) => {
         event.preventDefault();
-        this.props.dispatch({type: 'POST_PROJECTS' , payload: this.state})
+        this.props.dispatch({ type: 'POST_PROJECTS', payload: this.state })
         console.log(this.state);
-        
+
     }
-    handleDelete = (project) =>{
-        this.props.dispatch({type:'DELETE_PROJECT' , payload: project.id  })
+    handleDelete = (project) => {
+        this.props.dispatch({ type: 'DELETE_PROJECT', payload: project.id })
     }
     render() {
         return (

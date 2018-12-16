@@ -10,6 +10,7 @@ class Projects extends Component {
 
     getProjets = () => {
         this.props.dispatch({ type: 'GET_PROJECTS' })
+        
     }
     render() {
 
@@ -27,7 +28,7 @@ class Projects extends Component {
                             return <div key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <span> Jquery</span>
+                                <p> Jquery</p>
                                 <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
                             </div>
