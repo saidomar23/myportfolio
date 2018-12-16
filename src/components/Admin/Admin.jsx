@@ -43,11 +43,15 @@ class Admin extends Component {
         this.setState({
             date_completed: event.target.value            
         })
+        console.log(this.state.date_completed);
+        
     }
     handleDescriptionChange = (event) => {
         this.setState({
             description: event.target.value
         })
+        
+        
     }
     handleSubmit = (event) =>{
         event.preventDefault();
@@ -75,7 +79,7 @@ class Admin extends Component {
                     </select>
                     <input onChange={this.handleGithubChange} type="text" placeholder="Github Url" />
                     <input onChange={this.handleWebsiteChange} type="text" placeholder="Website" />
-                    <input onChange={this.handleDateChange} type="date" placeholder="Date" />
+                    <input onChange={this.handleDateChange} type="date" />
                     <input onChange={this.handleDescriptionChange} type="text" placeholder="Description" />
                     <input onClick={this.handleSubmit} type="submit" />
                 </form>
