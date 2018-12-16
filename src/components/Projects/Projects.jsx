@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import moment from 'moment'
 
 
 class Projects extends Component {
@@ -28,7 +28,7 @@ class Projects extends Component {
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
                                 <span> Jquery</span>
-                                <p>{project.date_completed}</p>
+                                <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
                             </div>
                         case 3:
