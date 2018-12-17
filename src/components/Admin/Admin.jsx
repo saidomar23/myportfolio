@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Table from '@material-ui/core/Table';
+import { createMuiTheme } from '@material-ui/core/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell'
+import Button from '@material-ui/core/Button';
+import green from '@material-ui/core/colors/green'
+// import teal from '@material-ui/core/colors/teal '
+import red from '@material-ui/core/colors/red'
+import moment from 'moment'
+import '../App/App.css'
 
+const theme = createMuiTheme({
+    palette: {
+        primary: green,
+       secondary: red
+      },
+})
 class Admin extends Component {
 
     state = {
@@ -64,12 +82,13 @@ class Admin extends Component {
     }
     render() {
         return (
+            <MuiThemeProvider theme={theme}>
             <div>
                 <h1>Add New Project</h1>
                 <form>
                     <input onChange={this.handleNameChange} type="text" placeholder="Project Name" />
                     <select onChange={this.handleTagChange} placeholder="Tag">
-                        <option value={0}></option>
+                        <option value={0}>Add Tag</option>
                         <option value={1}>React</option>
                         <option value={2}>Jquery</option>
                         <option value={3}>Node</option>
@@ -83,29 +102,31 @@ class Admin extends Component {
                     <input onChange={this.handleDescriptionChange} type="text" placeholder="Description" />
                     <input onClick={this.handleSubmit} type="submit" />
                 </form>
-                <table>
-                    <thead>
-                        <tr><th>Name</th>
-                            <th>Github</th>
-                            <th>Website</th>
-                            <th>Date</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                
+                <Table >
+                    <TableHead >
+                        <TableRow><TableCell>Name</TableCell>
+                            <TableCell>Github</TableCell>
+                            <TableCell>Website</TableCell>
+                            <TableCell>Date</TableCell>
+                            <TableCell>Description</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {this.props.reduxStore.projects.map(project => {
-                            return <tr key={project.id}>
-                                <td>{project.name}</td>
-                                <td>{project.github}</td>
-                                <td>{project.website}</td>
-                                <td>{project.date_completed}</td>
-                                <td>{project.description}</td>
-                                <td><button onClick={() => this.handleDelete(project)}>Delete</button></td>
-                            </tr>
+                            return <TableRow key={project.id}>
+                                <TableCell>{project.name}</TableCell>
+                                <TableCell>{project.github}</TableCell>
+                                <TableCell>{project.website}</TableCell>
+                                <TableCell>{moment(project.date_completed).format('MM/DD/YYYY')}</TableCell>
+                                <TableCell>{project.description}</TableCell>
+                                <TableCell><Button variant="contained" color="secondary" onClick={() => this.handleDelete(project)}>Delete</Button></TableCell>
+                            </TableRow>
                         })}
-                    </tbody>
-                </table>
+                    </TableBody>
+                </Table>
             </div>
+         </MuiThemeProvider>
         )
     }
 }

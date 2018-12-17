@@ -22,3 +22,32 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+img {
+  margin-top: 10px;
+  height: 100px;
+  width: 95px;
+}
+
+.navbar {
+  width: 900px;
+  height: 100px
+}
+.nameHeading {
+  margin-bottom: 0px
+}
+
+/* .tableClass {
+  height: 500px;
+  width: 500px;
+}
+
+.tableHead {
+  height: 500px;
+  width: 500px;
+}
+
+.tableBody {
+  height: 500px;
+  width: 500px;
+} */
