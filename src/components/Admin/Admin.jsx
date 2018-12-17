@@ -13,6 +13,7 @@ import green from '@material-ui/core/colors/green'
 import red from '@material-ui/core/colors/red'
 import moment from 'moment'
 import '../App/App.css'
+import {Link} from 'react-router-dom';
 
 const theme = createMuiTheme({
     palette: {
@@ -85,6 +86,7 @@ class Admin extends Component {
             <MuiThemeProvider theme={theme}>
             <div>
                 <h1>Add New Project</h1>
+                <Link to='/'>Projects</Link>
                 <form>
                     <input onChange={this.handleNameChange} type="text" placeholder="Project Name" />
                     <select onChange={this.handleTagChange} placeholder="Tag">

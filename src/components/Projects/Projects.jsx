@@ -5,6 +5,7 @@ import '../App/App.css'
 
 
 
+
 class Projects extends Component {
     componentDidMount() {
         this.getProjets();
@@ -25,14 +26,15 @@ class Projects extends Component {
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <img src={project.thumbnail} alt="preview"/>
+                                <img className="projectpic" src={project.thumbnail} alt="preview"/>
                                 <p>React</p>
+                                <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                             </div>
                         case 2:
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
-                                <img src={project.thumbnail} alt="preview"/>
                                 <a href={project.github}>Github</a>
+                                <img className="projectpic"  src={project.thumbnail} alt="preview"/>
                                 <p> Jquery</p>
                                 <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
@@ -41,31 +43,34 @@ class Projects extends Component {
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <img src={project.thumbnail} alt="preview"/>
+                                <img className="projectpic"  src={project.thumbnail} alt="preview"/>
                                 <p>Node</p>
+                                <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
                             </div>
                         case 4:
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <img src={project.thumbnail} alt="preview"/>
+                                <img className="projectpic"  src={project.thumbnail} alt="preview"/>
                                 <p>SQL</p>
+                                <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
                             </div>
                         case 5:
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <img src={project.thumbnail} alt="preview"/>
+                                <img className="projectpic"  src={project.thumbnail} alt="preview"/>
                                 <p>Redux</p>
+                                <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
                             </div>
                         case 6:
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <img src={project.thumbnail} alt="preview"/>
+                                <img className="projectpic"  src={project.thumbnail} alt="preview"/>
                                 <p>HTML</p>
                                 <p>{project.description}</p>
                             </div>
@@ -73,8 +78,9 @@ class Projects extends Component {
                             return <div className="project" key={project.id}>
                                 <h2>{project.name}</h2>
                                 <a href={project.github}>Github</a>
-                                <img src={project.thumbnail} alt="preview"/>
+                                <img className="projectpic"  src={project.thumbnail} alt="preview"/>
                                 <p>'None'</p>
+                                <p>{moment(project.date_completed).format('MM/DD/YYYY') }</p>
                                 <p>{project.description}</p>
                             </div>
                     }
